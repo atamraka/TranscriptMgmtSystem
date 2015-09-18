@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html class="no-js" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="utf-8">
+    <title>Transcript Management System</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width">
+    <link rel="stylesheet" href="styles/Style.css">
+<h1>Transcript Management System</h1>
+_____________________________________________
+
+<body  ng-app="jsApp">
+
+<div ng-controller="MainCtrl">
+    <br>
+    <div class="preview" ng-mouseup="showSelectedText()">
+
+        <input type="file" id="file" name="file"/>
+        <button ng-click="add()">Upload Text File</button>
+       <br><br> <textarea rows="20" cols="50" >{{data}}</textarea></br>
+    </div>
+
+   <br><br> <div><b>Selected Text:</b>  {{selectedText}} </div>
+
+    _____________________________________________
+
+    <div class="up-buttons">
+
+        <input type="file" name="myFile" ng-model="audio.myFile"/>
+        <input type="submit" value="Submit" ng-click="upload(audio)"/>
+        <br>
+    </div>
+    <audio id="audio1" controls>
+        <source src="{{}}"></source>
+
+
+</div>
+
+</body>
+
+<script src="bower_components/angular/angular.js"></script>
+<script src="bower_components/angular/angular.min.js"></script>
+
+
+
+
+
+<script  type="text/javascript" src="scripts/app.js"></script>
+<script  type="text/javascript" src="scripts/main.js"></script>
+</html>
