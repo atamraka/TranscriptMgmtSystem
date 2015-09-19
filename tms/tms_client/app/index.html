@@ -16,35 +16,37 @@ _____________________________________________
     <div class="preview" ng-mouseup="showSelectedText()">
 
         <input type="file" id="file" name="file"/>
-        <button ng-click="add()">Upload Text File</button>
+        <button ng-click="uploadTextFile()">Upload Text File</button>
        <br><br> <textarea rows="20" cols="50" >{{data}}</textarea></br>
     </div>
 
    <br><br> <div><b>Selected Text:</b>  {{selectedText}} </div>
 
     _____________________________________________
-
-    <div class="up-buttons">
-
-        <input type="file" name="myFile" ng-model="audio.myFile"/>
-        <input type="submit" value="Submit" ng-click="upload(audio)"/>
+    <br><br>
+    <div>
+        <label><b>Select a Audio:</b></label>
+       <select ng-model="selectoption" ng-options="opt.options for opt in UserOptions"  ng-change="ChooseOption(selectoption)"></select>
         <br>
     </div>
-    <audio id="audio1" controls>
-        <source src="{{}}"></source>
+    <br>
+    <audio id="audioRef" ng-src="{{filepath}}" controls ></audio>
+    <br><br>
+    <button ng-click="newProject();">NewProject</button>
+    <button ng-click="playAudio();">Play</button>
+    <button ng-click="pauseAudio();">Pause</button>
+    <button ng-click="saveBookMark();">SaveBookMark</button>
+    <button ng-click="playBackWithBookmark();">PlayWithBookMark</button>
 
 
 </div>
 
 </body>
 
+<!--Angular components-->
 <script src="bower_components/angular/angular.js"></script>
-<script src="bower_components/angular/angular.min.js"></script>
 
-
-
-
-
+<!--scripts files-->
 <script  type="text/javascript" src="scripts/app.js"></script>
 <script  type="text/javascript" src="scripts/main.js"></script>
 </html>

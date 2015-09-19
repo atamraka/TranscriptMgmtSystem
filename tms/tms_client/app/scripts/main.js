@@ -4,11 +4,13 @@
 'use strict';
 
 angular.module('jsApp')
-    .controller('MainCtrl',  function ($scope) {
+    .controller('MainCtrl', function ($scope,$http) {
 
-         /*For Uploading the file*/
+        $scope.UserOptions=[{options:'audio1.mp3'},{options:'audio2.mp3'},{options:'audio3.mp3'},{options:'audio4.mp3'}];
+
+        /*For Uploading the file*/
         $scope.data = 'none';
-        $scope.add = function(){
+        $scope.uploadTextFile = function(){
             var f = document.getElementById('file').files[0],
                 r = new FileReader();
             r.onloadend = function(e){
@@ -17,14 +19,16 @@ angular.module('jsApp')
             r.readAsBinaryString(f);
         };
 
-        /*for uploading the audio file*/
-        $scope.upload= function(audio){
-         var file=document.getElementById('audio1');
-           var filepath= file.value;
-            alert(filepath);
 
+    /*    options functionality for audio drop down*/
+        $scope.ChooseOption = function(item) {
 
-        }
+            var SelectViewoption = item.options;
+            var loc= "audios/";
+             $scope.filepath =loc+SelectViewoption;
+
+        };
+
 
         /* For selecting the file in text area*/
         $scope.showSelectedText = function() {
@@ -49,5 +53,31 @@ angular.module('jsApp')
 
             return text;
         };
+
+        /*for playing audio other than default function of player*/
+        $scope.playAudio=function() {
+            var audio = document.getElementById("audioRef");
+            audio.play();
+        };
+
+       /* for pausing the audio without default functionality*/
+       $scope.pauseAudio=function(){
+           var audio = document.getElementById("audioRef");
+           audio.pause();
+           alert(audio.currentTime);
+       }
+
+        /* function for saving the users bookmark*/
+        $scope.saveBookMark=function(){
+
+        }
+
+        /*function for playing with saved bookmarks*/
+        $scope.playBackWithBookmark=function(){
+
+
+        }
+
+
 
     });
