@@ -1,83 +1,120 @@
 /**
  * Created by muralidhar on 9/17/2015.
+ * surya @ updated upload textfile from bnary to text
+ * implemented the watch for getting index value
  */
 'use strict';
 
 angular.module('jsApp')
     .controller('MainCtrl', function ($scope,$http) {
 
-        $scope.UserOptions=[{options:'audio1.mp3'},{options:'audio2.mp3'},{options:'audio3.mp3'},{options:'audio4.mp3'}];
+        $scope.UserOptions = [{options: 'audio1.mp3'}, {options: 'audio2.mp3'}, {options: 'audio3.mp3'}, {options: 'audio4.mp3'}];
 
         /*For Uploading the file*/
         $scope.data = 'none';
-        $scope.uploadTextFile = function(){
-            var f = document.getElementById('file').files[0],
-                r = new FileReader();
-            r.onloadend = function(e){
-                $scope.data = e.target.result;
-            }
-            r.readAsBinaryString(f);
+        $scope.uploadTextFile = function () {
+            var r = new FileReader();
+            r.onloadend = function (e) {
+                $scope.$apply(function () {
+                    $scope.data = r.result;
+                });
+
+            };
+            var FileInput = document.getElementById('file');
+            var data = FileInput.files[0];
+
+
+            r.readAsText(data);
+
         };
+        /*$scope.$watch("data", function() {
+            var words, wordNumber, data, length;
+            words = $scope.data.split(" ");
+           /!* console.log(words);*!/
+            console.log(words.length);
+        });*/
 
 
-    /*    options functionality for audio drop down*/
-        $scope.ChooseOption = function(item) {
+        /*    options functionality for audio drop down*/
+        $scope.ChooseOption = function (item) {
 
             var SelectViewoption = item.options;
-            var loc= "audios/";
-             $scope.filepath =loc+SelectViewoption;
+            var loc = "audios/";
+            $scope.filepath = loc + SelectViewoption;
 
         };
 
 
-        /* For selecting the file in text area*/
-        $scope.showSelectedText = function() {
-            $scope.selectedText =  $scope.getSelectionText();
-        };
-        $scope.getSelectionText = function() {
-            var text = "";
-            if (window.getSelection) {
-             text = window.getSelection().toString();
+        /* For selecting the text in text area*/
+        $scope.$watch("data", function() {
+            var words, wordNumber ;
+            words = $scope.data.split(" ");
+            /* console.log(words);*/
+            console.log(words.length);
 
-             } else if (document.selection && document.selection.type != "Control") {
-             text = document.selection.createRange().text;
+            $scope.showSelectedText = function () {
+                $scope.selectedText = $scope.getSelectionText();
+            };
+            $scope.getSelectionText = function () {
 
-             }
-           /* var txtarea =document.getElementById("fileTextArea");
-            var start = txtarea.selectionStart;
-            // obtain the index of the last selected character
-            var finish = txtarea.selectionEnd;
-            // obtain the selected text
-            var sel = txtarea.value.substring(start, finish);
-            text=sel;*/
+                var text = "", range = document.createRange();
 
-            return text;
-        };
+                if (window.getSelection) {
+                    text = window.getSelection().toString();
+                    for (var i = 0; i <= words.length; i++) {
+                        if (words[i] == text) {
+                            text=i;
+                        }
+                    }
+                    /*range.selectNodeContents(this);
+                     window.getSelection().addRange(range);*/
+
+                } else if (document.selection && document.selection.type != "Control") {
+                    range = document.selection.createRange().text;
+                    alert("range");
+                }
+
+
+                return text;
+            };
+            $scope.playBackWithBookmark = function () {
+                /* var P = '{"time":"7","word":"Sylvia"}';*/
+                /* $scope.data = JSON.parse(P);*/
+                /* var audio = document.getElementById("audioRef");
+                 audio.play();*/
+
+                $scope.$watch('data', function() {
+                    $scope.data=function(){
+
+                    }
+                });
+
+
+            };
+        });
 
         /*for playing audio other than default function of player*/
-        $scope.playAudio=function() {
+        $scope.playAudio = function () {
             var audio = document.getElementById("audioRef");
             audio.play();
         };
 
-       /* for pausing the audio without default functionality*/
-       $scope.pauseAudio=function(){
-           var audio = document.getElementById("audioRef");
-           audio.pause();
-           alert(audio.currentTime);
-       }
+        /* for pausing the audio without default functionality*/
+        $scope.pauseAudio = function () {
+            var audio = document.getElementById("audioRef");
+            audio.pause();
+            alert(audio.currentTime);
+        };
 
         /* function for saving the users bookmark*/
-        $scope.saveBookMark=function(){
+        $scope.saveBookMark = function () {
 
-        }
-
-        /*function for playing with saved bookmarks*/
-        $scope.playBackWithBookmark=function(){
-
-
-        }
-
+        };
 
 
     });
+
+
+
+
+
