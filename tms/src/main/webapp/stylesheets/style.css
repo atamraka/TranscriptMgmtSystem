@@ -1,0 +1,30 @@
+/*Vishal Thakur added backgroung color and dimension for homepage*/
+html {
+    background: #333;
+    font-family: Verdana, sans-serif;
+}
+body {
+    background: white;
+    padding: 1em;
+    border-radius: 1em;
+}
+.passage-audio {
+    height: 2em;
+}
+#passage-audio {
+    width: 100%;
+    max-height: 2em;
+}
+#passage-text.speaking {
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+.section-heading {
+    display: none;
+}
+
+.verse-start {
+    line-height: 0;
+}
