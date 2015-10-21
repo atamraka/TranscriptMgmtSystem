@@ -28,3 +28,31 @@ body {
 .verse-start {
     line-height: 0;
 }
+/* Vivek Bhatnager added highliting of mouse-focus and hoverand pointer,footer-coloring and alignment of border */
+
+.initialized span[data-begin]:focus,
+.initialized span[data-begin]:hover {   
+    background-color: #FFFFCA;
+    box-shadow: 0px 0px 4px #FFFFCA;
+}
+.initialized span[data-begin].speaking {
+    background-color: yellow;			
+    box-shadow: 0px 0px 4px yellow;
+}
+.initialized span[data-begin] {
+    cursor: pointer;
+}
+article > footer {
+    border-top: solid 1px gray;
+    padding-top: 1em;
+    margin-top: 1em;
+}
+
+footer {
+    margin-bottom: 0.5em;
+    line-height: 1.4em;
+    font-size: small;
+}
+footer img {
+    vertical-align: text-bottom;
+}
