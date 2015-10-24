@@ -27,7 +27,27 @@ var ReadAlong = {
         this.selectCurrentWord();
 
     },
-   
+    /** 
+     * @Nitesh agarawal extended code on 10/24/2015
+     * 
+     * Build an index of all of the words that can be read along with their begin,
+     * and end times, and the DOM element representing the word.
+     */
+    generateWordList: function () {
+        var word_els = this.text_element.querySelectorAll('[data-begin]');
+        this.words = Array.prototype.map.call(word_els, function (word_el, index) {
+            var word = {
+                'begin': parseFloat(word_el.dataset.begin),
+                'dur': parseFloat(word_el.dataset.dur),
+                'element': word_el
+            };
+            word_el.tabIndex = 0; // to make it focusable/interactive
+            word.index = index;
+            word.end = word.begin + word.dur;
+            word_el.dataset.index = word.index;
+            return word;
+        });
+    },
     /***
     @ vinay reddy on 10/24/2015
     
