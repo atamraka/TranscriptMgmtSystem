@@ -12,16 +12,30 @@ var ReadAlong = {
 
   
    
-  
+    /***
+    @ vinay reddy on 10/24/2015
     
+    Added all the listeners when user performs any actions
+   
+   */
+  
 
-    addEventListeners: function () {
-       
+  addEventListeners: function () {
+      var that = this;
+      var word_book=[];
+      var temp;
 
-        }, false);
+          /**
+       * Select next word (at that.audio_element.currentTime) when playing begins
+       */
+      that.audio_element.addEventListener('play', function () {
+          that.selectCurrentWord();
+          that.text_element.classList.add('speaking');
+          console.log(that.flag);
 
- 
+      }, false);
 
+  
         
     }
 };
