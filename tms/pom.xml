@@ -7,16 +7,22 @@
   <version>0.0.1-SNAPSHOT</version>
   <name>tms Maven Webapp</name>
   <url>http://maven.apache.org</url>
-  <dependencies>
-    <dependency>
-      <groupId>junit</groupId>
-      <artifactId>junit</artifactId>
-      <version>3.8.1</version>
-      <scope>test</scope>
-    </dependency>
-  </dependencies>
+  
+  
+  
   <build>
     
-	<finalName>tms</finalName>
+	<finalName>Transcript_Management_System</finalName>
+	    
+	<!--  Since the javascript folder is now a declared resource location, the content is automatically 
+      copied to the generated maven artefact -->
+	
+	<resources>
+      <resource>
+          <directory>src/main/webapp/js</directory>
+         <filtering>true</filtering>
+      </resource>
+  </resources>
+	
   </build>
 </project>
