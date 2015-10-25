@@ -48,6 +48,39 @@ var ReadAlong = {
             return word;
         });
     },
+
+
+
+ /**
+     * 
+     * @Vivek Bhatnagar on 10/25/2015
+     * Select the current word and set timeout to select the next one if playing
+     */
+    selectCurrentWord: function() {
+        var that = this;
+        var current_word = this.getCurrentWord();
+        var is_playing = !this.audio_element.paused;
+        if (that.flag) {
+            console.log(that.flag);
+            for (var i in that.bookMarkWords) {
+                if (that.bookMarkWords[i] == current_word.index  ) {
+                    current_word.element.classList.add('bookmark');
+                    if (current_word.element.classList.contains('bookmark')) {
+                        if (that.autofocus_current_word) {
+                            current_word.element.focus();
+                        }
+                    }
+                }
+
+            }
+        }
+            if (!current_word.element.classList.contains('speaking')) {
+                this.removeWordSelection();
+                current_word.element.classList.add('speaking');
+                if (this.autofocus_current_word) {
+                    current_word.element.focus();
+                }
+            }
     /***
     @ vinay reddy on 10/24/2015
     
