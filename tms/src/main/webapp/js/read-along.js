@@ -49,45 +49,7 @@ var ReadAlong = {
         });
     },
 
-    /**
-     * @Mahaveer on 10/26/2015
-     * 
-     * From the audio's currentTime, find the word that is currently being played
-     * @todo this would better be implemented as a binary search
-     */
-    getCurrentWord: function () {
-        var i;
-        var len;
-        var is_current_word;
-        var word = null;
-        for (i = 0, len = this.words.length; i < len; i += 1) {
-            //
-            //console.log(this.words.length);
-            is_current_word = (
-                (
-                    this.audio_element.currentTime >= this.words[i].begin
-                    &&
-                    this.audio_element.currentTime < this.words[i].end
-                )
-                ||
-                (this.audio_element.currentTime < this.words[i].begin)
-            );
-            if (is_current_word) {
-                word = this.words[i];
-                break;
-            }
-        }
-
-        if (!word) {
-            throw Error('Unable to find current word and we should always be able to.');
-        }
-        return word;
-    },
-
-    _current_end_select_timeout_id: null,
-    _current_next_select_timeout_id: null,
-
-
+    
       /**
      * 
      * @Vivek Bhatnagar on 10/25/2015
