@@ -36,6 +36,9 @@ xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/ma
   </resources>
 
   <plugins>
+
+
+<!--
 <!-- @Anjila
 PLUGIN FOR BEHAVIOR DRIVEN TESTING WITH JASMINE   -->
 
@@ -56,6 +59,9 @@ PLUGIN FOR BEHAVIOR DRIVEN TESTING WITH JASMINE   -->
                     <jsTestSrcDir>src/test/js</jsTestSrcDir>
                 </configuration>
             </plugin>
+            
+            -->
+            
    
      <!-- @Suryamanipala   To created compressed versions of your javascript and css files the
           yuicompressor-maven-plugin is used. -->
