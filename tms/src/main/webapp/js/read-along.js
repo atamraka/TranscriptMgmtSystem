@@ -51,7 +51,7 @@ var ReadAlong = {
 
     
     /**
-     * @Mahaveer
+     * @Mahaveer on 10/26/2015
      * 
      * From the audio's currentTime, find the word that is currently being played
      * @todo this would better be implemented as a binary search
