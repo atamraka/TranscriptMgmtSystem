@@ -119,6 +119,22 @@ var ReadAlong = {
          }
          }
       },
+
+/***
+     * @vishal thakur 10/26/2015
+     * added a function once the selected word highlighed ,removing the word from classlist
+     * 
+     */
+
+    removeWordSelection: function() {
+        // There should only be one element with .speaking, but selecting all for good measure
+        var spoken_word_els = this.text_element.querySelectorAll('span[data-begin].speaking');
+        Array.prototype.forEach.call(spoken_word_els, function (spoken_word_el) {
+            spoken_word_el.classList.remove('speaking');
+        });
+    },
+
+
     /***
     @ vinay reddy on 10/24/2015
     
