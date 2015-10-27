@@ -55,7 +55,9 @@ xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/ma
 
 
  <!--  @Angelia
-           for BEHAVIOR DRIVEN TESTING WITH JASMINE plugin -->
+           for BEHAVIOR DRIVEN TESTING WITH JASMINE plugin
+           configured jasmine to use phantomjs 1.9.8 and it is running fine in Ubuntu.
+           -->
   
            <!--  <plugin>
                 <groupId>com.github.searls</groupId>
@@ -69,10 +71,20 @@ xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/ma
                     </execution>
                 </executions>
                 <configuration>
-                    <jsSrcDir>src/main/webapp/js</jsSrcDir>
-                    <jsTestSrcDir>src/test/js</jsTestSrcDir>
+                <skipJasmineTests>${skipUnitTest}</skipJasmineTests>
+                <phantomjs>
+                        <version>1.9.8</version>
+                        <checkSystemPath>true</checkSystemPath>
+                        <enforceVersion>true</enforceVersion>
+                        <source>REPOSITORY</source>
+                        <baseUrl/>
+                        <outputDirectory>target/phantomjs</outputDirectory>
+                    </phantomjs>
+                    <jsSrcDir>${project.basedir}src/main/webapp/js</jsSrcDir>
+                    <jsTestSrcDir>${basedir}src/test/js</jsTestSrcDir>
                 </configuration>
             </plugin> -->
+            
             
             
    
