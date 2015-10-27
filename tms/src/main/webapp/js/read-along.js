@@ -189,4 +189,4 @@ that.audio_element.addEventListener('pause', function (e) {
             if ( (e.charCode || e.keyCode) === 13 /*Enter*/) {
                 on_select_word_el.call(this, e);
             }
-        }, fals);
+        }, false);
