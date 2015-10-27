@@ -142,3 +142,13 @@ var ReadAlong = {
       }, false);
     },
   };
+
+
+/**
+ * @vinay reddy on 10/26/2015
+ * Abandon seeking the next word because we're paused
+ */
+that.audio_element.addEventListener('pause', function (e) {
+    that.selectCurrentWord(); // We always want a word to be selected
+    that.text_element.classList.remove('speaking');
+}, false);
