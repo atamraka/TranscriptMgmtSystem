@@ -168,3 +168,25 @@ that.audio_element.addEventListener('pause', function (e) {
     that.selectCurrentWord(); // We always want a word to be selected
     that.text_element.classList.remove('speaking');
 }, false);
+
+
+/**
+         * Nitesh Agarwal on 10/27/2015
+         * Seek by selecting a word (event delegation)
+         */
+        function on_select_word_el(e) {
+            if (!e.target.dataset.begin) {
+                return;
+            }
+            e.preventDefault();
+
+            var i = e.target.dataset.index;
+            that.audio_element.currentTime = that.words[i].begin + 0.01; //Note: times apparently cannot be exactly set and sometimes select too early
+            that.selectCurrentWord();
+        }
+        that.text_element.addEventListener('click', on_select_word_el, false);
+        that.text_element.addEventListener('keypress', function (e) {
+            if ( (e.charCode || e.keyCode) === 13 /*Enter*/) {
+                on_select_word_el.call(this, e);
+            }
+        }, fals);
