@@ -59,7 +59,7 @@ xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/ma
            configured jasmine to use phantomjs 1.9.8 and it is running fine in Ubuntu.
            -->
   
-           <!--  <plugin>
+            <plugin>
                 <groupId>com.github.searls</groupId>
   		<artifactId>jasmine-maven-plugin</artifactId>
   		<version>2.0</version>
@@ -83,7 +83,7 @@ xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/ma
                     <jsSrcDir>${project.basedir}src/main/webapp/js</jsSrcDir>
                     <jsTestSrcDir>${basedir}src/test/js</jsTestSrcDir>
                 </configuration>
-            </plugin> -->
+            </plugin> 
             
             
             
