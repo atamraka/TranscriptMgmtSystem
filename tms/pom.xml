@@ -18,6 +18,22 @@ xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/ma
   </dependency>
 </dependencies> -->
  
+<profiles>
+      <!-- better to have keep this sonar profile in your maven settings.xml -->
+      <profile>
+            <id>SonarQube</id>
+            <activation>
+              <activeByDefault>false</activeByDefault>
+            </activation>
+            <properties>
+                 <sonar.host.url>http://zibran-ci.cs.uno.edu:9000/</sonar.host.url>
+                 <sonar.jdbc.username>admin</sonar.jdbc.username>
+                 <sonar.jdbc.password>admin</sonar.jdbc.password>
+            </properties>
+          </profile>
+
+  </profiles>
+ 
  
   <!-- 
  @Muralidhar
@@ -49,11 +65,6 @@ xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/ma
                     <execution>
                         <goals>      
                             <goal>test</goal>
-                           
-                            <goal>generateManualRunner</goal>
-                            <goal>resources</goal>
-                            <goal>testResources</goal>
-                            <goal>preparePackage</goal>
                         </goals>
                     </execution>
                 </executions>
