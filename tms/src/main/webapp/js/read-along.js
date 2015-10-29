@@ -206,3 +206,22 @@ that.audio_element.addEventListener('pause', function (e) {
                 }
             }
         }, false);
+
+        
+        /**
+         * 
+         *  Vinay Reddy on 10/29/2015
+         * Select a word when seeking
+         */
+        that.audio_element.addEventListener('seeked', function (e) {
+            that.selectCurrentWord();
+            var audio_element = this;
+            if (!audio_element.paused) {
+                var previousTime = audio_element.currentTime;
+                setTimeout(function () {
+                    if (!audio_element.paused && previousTime === audio_element.currentTime) {
+                        audio_element.currentTime += 0.01; // Attempt to unstick
+                    }
+                }, 500);
+            }
+        }, false);
