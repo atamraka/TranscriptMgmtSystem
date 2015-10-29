@@ -190,3 +190,19 @@ that.audio_element.addEventListener('pause', function (e) {
                 on_select_word_el.call(this, e);
             }
         }, false);
+/**
+         * @ Ravi charan 
+         * 
+         *added  Spacebar toggles playback
+         */
+        document.addEventListener('keypress', function (e) {
+            if ( (e.charCode || e.keyCode) === 32 /*Space*/) {
+                e.preventDefault();
+                if (that.audio_element.paused) {
+                    that.audio_element.play();
+                }
+                else {
+                    that.audio_element.pause();
+                }
+            }
+        }, false);
