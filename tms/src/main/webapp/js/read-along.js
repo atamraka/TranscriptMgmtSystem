@@ -225,3 +225,11 @@ that.audio_element.addEventListener('pause', function (e) {
                 }, 500);
             }
         }, false);
+        
+        /**
+         * @Vinay Reddy on 10/30/2015
+         * Select a word when seeking
+         */
+        that.audio_element.addEventListener('ratechange', function (e) {
+            that.selectCurrentWord();
+        }, false);
