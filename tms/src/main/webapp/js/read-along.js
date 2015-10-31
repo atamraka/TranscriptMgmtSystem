@@ -133,6 +133,16 @@ var ReadAlong = {
             spoken_word_el.classList.remove('speaking');
         });
     },
+	
+	/*** anjila /10/11/2015
+	* copying the bookmark index values for local array to global array bookMarkWords variable
+	* @param bookvalues
+	*/
+    
+	CopyArraysBookMarks: function(bookvalues) {
+        Array.prototype.push.apply(this.bookMarkWords, bookvalues);
+        console.log("copied array "+this.bookMarkWords);
+    },
 
 
     /***
