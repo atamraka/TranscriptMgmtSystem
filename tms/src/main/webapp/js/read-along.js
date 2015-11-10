@@ -217,6 +217,16 @@ var ReadAlong = {
 
 
         /**
+         * @ Raghu verma
+         * First click handler sets currentTime to the word, and second click
+         * here then causes it to play.
+         * @todo Should it stop playing once the duration is over?
+         */
+        that.text_element.addEventListener('dblclick', function (e) {
+            e.preventDefault();
+            that.audio_element.play();
+        }, false);
+        /**
          *
          *  Vinay Reddy on 10/29/2015
          * Select a word when seeking
