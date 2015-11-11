@@ -1,14 +1,14 @@
 /**
  * Created by Muralidhar on 11/01/2015.
- * 
+ *
  *Seperation javascript code from home page and implementing upload and main function loading
  *
- * 
+ *
  */
 
 function onAudioChange() {
 	/*var log = log4javascript.getDefaultLogger();
-	log.info("onAudioChange function");*/
+	 log.info("onAudioChange function");*/
 	var selectBox = document.getElementById("selectAudioBox");
 	var selectedValue = selectBox.options[selectBox.selectedIndex].value;
 	console.log(selectedValue);
@@ -20,9 +20,9 @@ function onAudioChange() {
 
 function onTextChange() {
 	/*var log = log4javascript.getDefaultLogger();
-	log.info("onTextChange function");*/
-	document.getElementById("MainPage").disabled =false;  /*added Enable option button disabled attribute false
-	suryanarayana */
+	 log.info("onTextChange function");*/
+	/*removed Enable option button disabled attribute false
+	 suryanarayana */
 	var selectBox = document.getElementById("selecttextbox");
 	var selectedValue = selectBox.options[selectBox.selectedIndex].value;
 	console.log(selectedValue);
@@ -31,7 +31,7 @@ function onTextChange() {
 
 function loading() {
 	/*var log = log4javascript.getDefaultLogger();
-	log.info("onloading main function");*/
+	 log.info("onloading main function");*/
 	var check = document.getElementById("MainPage").value;
 	console.log(check);
 	document.getElementById("Bookmark").disabled = false;
