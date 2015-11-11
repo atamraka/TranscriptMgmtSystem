@@ -292,7 +292,21 @@ var transcriptor = {
         /* removed rate change eventlistner
         * @ suryanarayana on 11/10/2015
          */
-
+      
+         /***
+         @Muralidhar  on 10/15/2015
+          added a Listener when user clicks on buttom playwithboomark
+         
+         */
+       document.getElementById("playWithBookmark").addEventListener('click',function(){
+            
+    	   var log = log4javascript.getDefaultLogger();
+    	   log.info("in play with book mark function");
+    		log.info(that.flag);
+          // that.text_element.classList.add('bookmark');
+            that.audio_element.play();
+           that.flag=document.getElementById("playWithBookmark").value;
+        });
 
         /***
          @suryanarayna  on 10/12/2015
