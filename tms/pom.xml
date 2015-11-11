@@ -10,13 +10,7 @@ xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/ma
   <url>http://maven.apache.org</url>
   
   
-<!-- <dependencies>
-<dependency>
-      <groupId>org.apache.maven</groupId>
-      <artifactId>maven-embedder</artifactId>
-      <version>3.1.0</version>  
-  </dependency>
-</dependencies> -->
+
  
 <profiles>
       <!-- better to have keep this sonar profile in your maven settings.xml -->
@@ -90,7 +84,7 @@ xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/ma
    
      <!-- @Suryamanipala   To created compressed versions of your javascript and css files the
           yuicompressor-maven-plugin is used. -->
-            <plugin>
+       <!--      <plugin>
                 <groupId>net.alchim31.maven</groupId>
   		<artifactId>yuicompressor-maven-plugin</artifactId>
   		<version>1.1</version>
@@ -102,7 +96,7 @@ xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/ma
                         </goals>
                     </execution>
                 </executions>
-            </plugin>
+            </plugin>-->
             
             
   </plugins>
