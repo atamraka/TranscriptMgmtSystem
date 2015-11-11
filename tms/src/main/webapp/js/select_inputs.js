@@ -7,8 +7,11 @@
  */
 
 function onAudioChange() {
-	/*var log = log4javascript.getDefaultLogger();
-	 log.info("onAudioChange function");*/
+	/*============ LOG INFORMATION ============
+	Anjila*/
+	var log = log4javascript.getDefaultLogger();
+	log.info("onAudioChange function in select_inputs.js");
+	/*======================*/
 	var selectBox = document.getElementById("selectAudioBox");
 	var selectedValue = selectBox.options[selectBox.selectedIndex].value;
 	console.log(selectedValue);
@@ -19,8 +22,11 @@ function onAudioChange() {
 }
 
 function onTextChange() {
-	/*var log = log4javascript.getDefaultLogger();
-	 log.info("onTextChange function");*/
+	/*============ LOG INFORMATION ============
+	Anjila*/
+	var log = log4javascript.getDefaultLogger();
+	log.info("onTextChange function  in select_inputs.js");
+	/*======================*/
 	/*removed Enable option button disabled attribute false
 	 suryanarayana */
 	var selectBox = document.getElementById("selecttextbox");
@@ -30,8 +36,11 @@ function onTextChange() {
 }
 
 function loading() {
-	/*var log = log4javascript.getDefaultLogger();
-	 log.info("onloading main function");*/
+	/*============ LOG INFORMATION ============
+	Anjila*/
+	var log = log4javascript.getDefaultLogger();
+	log.info("on loading main function in select_inputs.js");
+	/*======================*/
 	var check = document.getElementById("MainPage").value;
 	console.log(check);
 	document.getElementById("Bookmark").disabled = false;
