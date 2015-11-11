@@ -34,3 +34,28 @@ describe('toThrow', function() {
 	    expect(spy).toHaveBeenCalled();
 	    
 	  });
+	  
+	  
+	  
+	  it("Should spy on CurrentWord throw", function() {
+	    var spy = spyOn(ReadAlong,'getCurrentWord').toThrow(new Error('problem'));
+	    var word = null;
+	    try
+	    {
+	    	word = ReadAlong.getCurrentWord();
+	    } catch(ex){
+	    	word = 'Tested';
+	    		}
+	 
+	    expect(word).toEqual('Tested');
+	    
+	  });
+	
+	
+	
+	it("Should spy on current word and set timeout to select the next one if playing", function() {
+	    var spy = spyOn(ReadAlong,'selectCurrentWord')
+	    ReadAlong.selectCurrentWord();
+	    expect(spy).toHaveBeenCalled();
+	    
+	  });
