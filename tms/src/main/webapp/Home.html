@@ -17,6 +17,9 @@ Added audio file to the home page
     <link rel="stylesheet" href="stylesheets/style.css">
     <script
             src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+	
+
+    <script src="https://raw.githubusercontent.com/bartaz/sandbox.js/master/jquery.highlight.js"></script>
     <script src="js/select_inputs.js"></script>
     <script src="js/main.js"></script>
     <script src="js/transcriptor.js"></script>
@@ -34,7 +37,12 @@ Added audio file to the home page
 -->
 <marquee><h1> <b> Transcript Management System</b></h1></marquee>
 <article>
-    <br>
+    
+    <div id="Highlightingsearchword" class="HighlightingSearchWord">
+      <label><b>Search Word:</b></label> <input type="text" id = "SearchingWord"> </input>
+     <button id="HighlightWord" onclick="highlightWord()">HighlightSearchWord</button>
+    </div>
+	<br>
     <br>
     <form name="myaud">
         <label><b>Select a Audio file :</b></label>
