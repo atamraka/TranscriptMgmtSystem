@@ -2,7 +2,7 @@
  * Created by Muralidhar on 11/01/2015.
  * 
  *Seperation javascript code from home page and implementing upload and main function loading
- * 
+ *
  * 
  */
 
@@ -21,6 +21,8 @@ function onAudioChange() {
 function onTextChange() {
 	/*var log = log4javascript.getDefaultLogger();
 	log.info("onTextChange function");*/
+	document.getElementById("MainPage").disabled =false;  /*added Enable option button disabled attribute false
+	suryanarayana */
 	var selectBox = document.getElementById("selecttextbox");
 	var selectedValue = selectBox.options[selectBox.selectedIndex].value;
 	console.log(selectedValue);
