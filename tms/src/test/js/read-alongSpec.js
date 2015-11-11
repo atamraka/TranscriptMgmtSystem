@@ -52,10 +52,39 @@ describe('toThrow', function() {
 	  });
 	
 	
-	
 	it("Should spy on current word and set timeout to select the next one if playing", function() {
 	    var spy = spyOn(ReadAlong,'selectCurrentWord')
 	    ReadAlong.selectCurrentWord();
 	    expect(spy).toHaveBeenCalled();
 	    
 	  });
+	
+	it("Should spy on once the selected word highlighed ,removing the word from classlist", function() {
+	    var spy = spyOn(ReadAlong,'removeWordSelection')
+	    ReadAlong.removeWordSelection();
+	    expect(spy).toHaveBeenCalled();
+	    
+	  });
+	
+	it("copying the bookmark index values for local array to global array bookMarkWords variable", function() {
+	    var spy = spyOn(ReadAlong,'CopyArraysBookMarks')
+	    ReadAlong.CopyArraysBookMarks();
+	    expect(spy).toHaveBeenCalled();
+	    
+	  });
+	
+	
+	
+	it("Should spy on all the listeners when user performs any actions", function() {
+	    var spy = spyOn(ReadAlong,'addEventListeners')
+	    ReadAlong.addEventListeners();
+	    expect(spy).toHaveBeenCalled();
+	    
+	  });
+	
+	
+	
+	
+	
+	
+});
