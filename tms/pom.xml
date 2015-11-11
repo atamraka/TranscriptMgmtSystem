@@ -23,6 +23,10 @@ xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/ma
                  <sonar.host.url>http://zibran-ci.cs.uno.edu:9000/</sonar.host.url>
                  <sonar.jdbc.username>admin</sonar.jdbc.username>
                  <sonar.jdbc.password>admin</sonar.jdbc.password>
+                 <path.to.browser>/usr/bin/firefox</path.to.browser>
+                 <sonar.exclusions>src/main/webapp/lib/*.**</sonar.exclusions>
+                 <sonar.javascript.jstestdriver.reportsPath>target/jstestdriver</sonar.javascript.jstestdriver.reportsPath>
+	           	 <sonar.javascript.lcov.reportPath>target/jstestdriver/jsTestDriver.conf-coverage.dat</sonar.javascript.lcov.reportPath>
             </properties>
           </profile>
 
@@ -46,41 +50,30 @@ xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/ma
   </resources>
 
   <plugins>
-
-
- <!--  @Angelia
-           for BEHAVIOR DRIVEN TESTING WITH JASMINE plugin
-           configured jasmine to use phantomjs 1.9.8 and it is running fine in Ubuntu.
-           -->
-  
-            <plugin>
-                <groupId>com.github.searls</groupId>
-  		<artifactId>jasmine-maven-plugin</artifactId>
-  		<version>2.0</version>
-                <executions>
-                    <execution>
-                        <goals>      
-                            <goal>test</goal>
-                        </goals>
-                    </execution>
-                </executions>
-                <configuration>
-                <skipJasmineTests>${skipUnitTest}</skipJasmineTests>
-                <phantomjs>
-                        <version>1.9.8</version>
-                        <checkSystemPath>true</checkSystemPath>
-                        <enforceVersion>true</enforceVersion>
-                        <source>REPOSITORY</source>
-                        <baseUrl/>
-                        <outputDirectory>target/phantomjs</outputDirectory>
-                    </phantomjs>
-                    <jsSrcDir>${project.basedir}src/main/webapp/js</jsSrcDir>
-                    <jsTestSrcDir>${basedir}src/test/js</jsTestSrcDir>
-                </configuration>
-            </plugin> 
-            
-            
-            
+    
+     <!-- Add following plugin for executing the jasmin test cases and code coverage -->
+			<plugin>
+				<groupId>com.googlecode.jstd-maven-plugin</groupId>
+				<artifactId>jstd-maven-plugin</artifactId>
+				<version>1.3.5.1</version>
+				<configuration>
+					<verbose>true</verbose>
+					<browser>${path.to.browser}</browser>
+					<port>9876</port>
+					<testOutput>target/jstestdriver</testOutput>
+					<!-- <runnerMode>DEBUG</runnerMode> -->
+				</configuration>
+				<executions>
+					<execution>
+						<id>run-tests</id>
+						<goals>
+							<goal>test</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+	
    
      <!-- @Suryamanipala   To created compressed versions of your javascript and css files the
           yuicompressor-maven-plugin is used. -->
