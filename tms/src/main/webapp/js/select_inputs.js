@@ -3,7 +3,7 @@
  *
  *Seperation javascript code from home page and implementing upload and main function loading
  *
- *
+ *Added a fuction for Highlighthing text @vishal
  */
 
 function onAudioChange() {
@@ -48,4 +48,8 @@ function loading() {
 	document.getElementById("playWithBookmark").disabled = false;
 	document.getElementById("passage-audio").hidden = false;
 	load_main(check);
+}
+function highlightWord(){
+var SearchWord= document.getElementById("SearchingWord").value;
+$("#passage-text").highlight(SearchWord);
 }
