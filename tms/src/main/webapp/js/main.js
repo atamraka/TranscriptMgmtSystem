@@ -13,9 +13,9 @@ window.addEventListener('load', function (e) {
             audio_element: document.getElementById('passage-audio'),
             autofocus_current_word: document.getElementById('autofocus-current-word').checked,
         };
-        ReadAlong.init(args);
+        transcriptor.init(args);
         document.getElementById('autofocus-current-word').addEventListener('change', function (e) {
-            ReadAlong.autofocus_current_word = this.checked;
+            transcriptor.autofocus_current_word = this.checked;
         });
         
     }
