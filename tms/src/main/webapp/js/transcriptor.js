@@ -6,8 +6,10 @@
  * @ Mahaveer on 10/24/2015
  *   added a basic template and retriving parameter from main.js file 
  */
-
-var transcriptor = {
+/*============ LOG INFORMATION ============
+ suryanarayana*/
+var log  = log4javascript.getDefaultLogger();
+var ReadAlong = {
     text_element: null,
     audio_element: null,
     autofocus_current_word: false,
@@ -63,7 +65,7 @@ var transcriptor = {
         var word = null;
         for (i = 0, len = this.words.length; i < len; i += 1) {
             //
-            //console.log(this.words.length);
+            //Log.info(this.words.length);
             is_current_word = (
                 (
                     this.audio_element.currentTime >= this.words[i].begin
@@ -98,7 +100,7 @@ var transcriptor = {
         var current_word = this.getCurrentWord();
         var is_playing = !this.audio_element.paused;
         if (that.flag) {
-            console.log(that.flag);
+            log.info(that.flag);
             for (var i in that.bookMarkWords) {
                 if (that.bookMarkWords[i] == current_word.index) {
                     current_word.element.classList.add('bookmark');
@@ -181,7 +183,9 @@ var transcriptor = {
     
 	CopyArraysBookMarks: function(bookvalues) {
         Array.prototype.push.apply(this.bookMarkWords, bookvalues);
-        console.log("copied array "+this.bookMarkWords);
+        /*============ LOG INFORMATION ============
+         suryanarayana*/
+        log.info("copied array "+this.bookMarkWords);
     },
 
 
@@ -202,7 +206,9 @@ var transcriptor = {
         that.audio_element.addEventListener('play', function () {
             that.selectCurrentWord();
             that.text_element.classList.add('speaking');
-            console.log(that.flag);
+            /*============ LOG INFORMATION ============
+             suryanarayana*/
+            log.info(that.flag);
 
         }, false);
 
@@ -299,11 +305,10 @@ var transcriptor = {
          
          */
        document.getElementById("playWithBookmark").addEventListener('click',function(){
-            
-    	   var log = log4javascript.getDefaultLogger();
-    	   log.info("in play with book mark function");
-    		log.info(that.flag);
-          // that.text_element.classList.add('bookmark');
+           /*============ LOG INFORMATION ============
+            suryanarayana*/
+           log .info("in play with book mark function");
+           log .info(that.flag);
             that.audio_element.play();
            that.flag=document.getElementById("playWithBookmark").value;
         });
