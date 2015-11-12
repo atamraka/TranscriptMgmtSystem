@@ -61,7 +61,7 @@ xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/ma
 					<browser>${path.to.browser}</browser>
 					<port>9876</port>
 					<testOutput>target/jstestdriver</testOutput>
-					<!-- <runnerMode>DEBUG</runnerMode> -->
+					<runnerMode>DEBUG</runnerMode>
 				</configuration>
 				<executions>
 					<execution>
