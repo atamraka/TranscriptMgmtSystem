@@ -9,6 +9,8 @@
  */
 function load_main(value) {
     if(value) {
+        var log = log4javascript.getDefaultLogger();
+        log.info("loading from selectinput class");
         try {
             var args = {
                 text_element: document.getElementById('passage-text'),
@@ -18,9 +20,9 @@ function load_main(value) {
 
             };
 
-            transcriptor.init(args);
+            ReadAlong.init(args);
             document.getElementById('autofocus-current-word').addEventListener('change', function (e) {
-                transcriptor.autofocus_current_word=this.checked;
+                ReadAlong.autofocus_current_word=this.checked;
             });
 
 
