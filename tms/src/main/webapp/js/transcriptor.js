@@ -19,8 +19,9 @@ var ReadAlong = {
     bookMarkWords: [],
     init: function (args) {
         var name;
-
-
+        /*============ LOG INFORMATION ============
+         suryanarayana*/
+        log.info("In Read Along file");
         for (name in args) {
             this[name] = args[name];
         }
@@ -59,13 +60,14 @@ var ReadAlong = {
      * @todo this would better be implemented as a binary search
      */
     getCurrentWord: function () {
+        /*============ LOG INFORMATION ============
+         suryanarayana*/
+        log.info("In GetCurrentWord");
         var i;
         var len;
         var is_current_word;
         var word = null;
         for (i = 0, len = this.words.length; i < len; i += 1) {
-            //
-            //Log.info(this.words.length);
             is_current_word = (
                 (
                     this.audio_element.currentTime >= this.words[i].begin
@@ -96,6 +98,9 @@ var ReadAlong = {
      * Select the current word and set timeout to select the next one if playing
      */
     selectCurrentWord: function () {
+        /*============ LOG INFORMATION ============
+         suryanarayana*/
+        log.info("In SelectCurentWord");
         var that = this;
         var current_word = this.getCurrentWord();
         var is_playing = !this.audio_element.paused;
@@ -170,6 +175,9 @@ var ReadAlong = {
 
     removeWordSelection: function () {
         // There should only be one element with .speaking, but selecting all for good measure
+    /*============ LOG INFORMATION ============
+     suryanarayana*/
+        log.info("In removeWordSelection");
         var spoken_word_els = this.text_element.querySelectorAll('span[data-begin].speaking');
         Array.prototype.forEach.call(spoken_word_els, function (spoken_word_el) {
             spoken_word_el.classList.remove('speaking');
@@ -182,6 +190,9 @@ var ReadAlong = {
 	*/
     
 	CopyArraysBookMarks: function(bookvalues) {
+        /*============ LOG INFORMATION ============
+         suryanarayana*/
+        log.info("In Copy Arrays Bookmarks function");
         Array.prototype.push.apply(this.bookMarkWords, bookvalues);
         /*============ LOG INFORMATION ============
          suryanarayana*/
@@ -196,6 +207,9 @@ var ReadAlong = {
 
      */
     addEventListeners: function () {
+        /*============ LOG INFORMATION ============
+         suryanarayana*/
+        log.info("in Add Event Listeners");
         var that = this;
         var word_book = [];
         var temp;
@@ -307,8 +321,8 @@ var ReadAlong = {
        document.getElementById("playWithBookmark").addEventListener('click',function(){
            /*============ LOG INFORMATION ============
             suryanarayana*/
-           log .info("in play with book mark function");
-           log .info(that.flag);
+           log.info("in play with book mark function");
+           log.info(that.flag);
             that.audio_element.play();
            that.flag=document.getElementById("playWithBookmark").value;
         });
@@ -319,6 +333,9 @@ var ReadAlong = {
          */
 
         document.getElementById("Bookmark").addEventListener('click', function () {
+            /*============ LOG INFORMATION ============
+             suryanarayana*/
+            log.info("in  book mark function");
             var current_word = that.getCurrentWord();
             if (temp != false) {
                 word_book.push(current_word.index);
@@ -329,6 +346,9 @@ var ReadAlong = {
         /** suryanarayana */
 
         document.getElementById("EndBookmark").addEventListener('click', function () {
+            /*============ LOG INFORMATION ============
+             suryanarayana*/
+            log.info("in  end book mark function");
             temp = false;
             that.CopyArraysBookMarks(word_book);
             that.audio_element.load();
