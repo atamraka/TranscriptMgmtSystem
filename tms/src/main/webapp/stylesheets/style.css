@@ -58,6 +58,16 @@ added code to hightlight the words in bookmark
 }
     
 }
+
+/*vivek added code to highligh text*/
+.HighlightingSearchWord{
+align : right;
+}
+
+.highlight {
+background-color:lightseagreen;
+}
+
 article > footer {
     border-top: solid 1px gray;
     padding-top: 1em;
