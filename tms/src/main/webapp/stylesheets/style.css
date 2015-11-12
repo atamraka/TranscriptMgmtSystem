@@ -41,8 +41,9 @@ body {
 }
 .initialized span[data-begin] {
     cursor: pointer;
-    
-    /**
+
+}
+   /**
 vivek
 added code to hightlight the words in bookmark 
 **/
@@ -55,8 +56,6 @@ added code to hightlight the words in bookmark
 }
 .error {
     color: red;
-}
-    
 }
 
 /*vivek added code to highligh text*/
