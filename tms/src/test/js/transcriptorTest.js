@@ -20,6 +20,39 @@ describe("transcriptorTest", function() {
 	  });
 	
 });
+
+	describe('transcriptorTest', function() {
+		
+		it("Should spy on CurrentWord if Word is Null", function() {
+		  var spy = spyOn(ReadAlong,'getCurrentWord').and.returnValue('null')
+	    expect(ReadAlong.getCurrentWord()).toEqual('null');
+	    
+	  });
+	});
+	
+	
+	describe('transcriptorTest', function() {		
+		  beforeEach(function() { 
+		     var is_current_word;
+	         var word = null;
+			 var is_current_word = {
+			     		getCurrentWord: function() {
+			                throw new Error('Unexpected error!')
+			            }
+			 }
+		  });			  				
+		it("Testing the Error functionality ", function() {						
+		    try
+		    {
+		    	word = ReadAlong.getCurrentWord();
+		    } catch(ex){
+		    	word = 'Catch Error';
+		    		}
+		     expect(word).toEqual('Catch Error');
+		    
+		  });
+		});
+		
 	
 /*	it("Should spy on CurrentWord if Word is Null", function() {
 		
@@ -100,9 +133,3 @@ describe("transcriptorTest", function() {
 	
 	
 });
-
-
-
-
-
-
