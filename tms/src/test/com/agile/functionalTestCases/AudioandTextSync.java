@@ -1,4 +1,4 @@
-//Functional Test Case for Audio and Text Synchronization and then play the audio-@Mahaveer Jhaver
+//Functional Test Case for Audio and Text Synchronization and then play the audio-@ Mahaveer Jhaver
 //package automationframework;
 
 import java.util.List;
